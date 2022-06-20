@@ -26,8 +26,20 @@ export default{
     components: { Logo, MenuNavbar, Button },
 
     setup(){
-        const featuresData = ref(['Todo List','Calendar','Reminders','Planning',]);
-        const companyData = ref(['History','Our Team','Blog'])
+        const featuresData = ref([
+            { icon : 'icon-todo', label : 'Todo List' },
+            { icon : 'icon-calendar', label : 'Calendar' },
+            { icon : 'icon-reminders', label : 'Reminders' },
+            { icon : 'icon-planning', label : 'Planning' },
+        ]);
+
+
+        const companyData = ref([
+            {label :'History'},
+            {label :'Our Team'},
+            {label :'Blog'}
+        ]);
+
 
     return {
         featuresData,

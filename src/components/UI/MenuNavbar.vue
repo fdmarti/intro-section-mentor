@@ -8,7 +8,10 @@
             </span>
         </a>
         <ul v-if="dropdownData" class="menu-dropdown" :class="{'active': addActiveClass}">
-            <li class="list-dropdown" v-for="(entry,index) in dropdownData" :key="index">{{entry}}</li>
+            <li class="list-dropdown" v-for="(entry,index) in dropdownData" :key="index">
+                <IconsMenu :name="entry.icon"/>
+                {{entry.label}}
+            </li>
         </ul>
     </li>
 
@@ -17,9 +20,10 @@
 import { ref } from '@vue/reactivity';
 import IconArrowDown from '../Icons/IconArrowDown.vue';
 import IconArrowUp from '../Icons/IconArrowUp.vue';
+import IconsMenu from '../Icons/IconsMenu.vue';
 export default{
-    props: ["label", "dropdownData"],
-    components: { IconArrowDown, IconArrowUp },
+    props: ["label", "dropdownData", "icon"],
+    components: { IconArrowDown, IconArrowUp, IconsMenu },
 
     setup(){
         const showDropdown = ref(false);
@@ -28,7 +32,6 @@ export default{
         const toggleMenu = () => {
             showDropdown.value = !showDropdown.value
             addActiveClass.value = !addActiveClass.value
-
         }
 
         return {
@@ -68,10 +71,13 @@ a:hover{
 }
 
 .list-dropdown{
-    margin: 20px 0;
+    margin: 15px 0;
     color:#696969;
     font-size: 14px;
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 .list-dropdown:hover{
     color:hsl(0, 0%, 8%);
