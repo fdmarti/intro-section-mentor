@@ -22,4 +22,10 @@
         background-color:hsl(0, 0%, 98%);
         color:hsl(0, 0%, 8%);
     }
+
+    @media (max-width:768px) {
+        button{
+            margin: 10px 0;
+        }
+    }
 </style>

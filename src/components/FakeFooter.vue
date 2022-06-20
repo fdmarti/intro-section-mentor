@@ -19,10 +19,21 @@
 </template>
 <style scoped>
 
+.fake-footer{
+    display: flex;
+    align-items: center;
+    gap:4rem;
+}
+
+@media (max-width:768px) {
     .fake-footer{
-        display: flex;
-        align-items: center;
-        gap:4rem;
+        margin-top: 20px;
+        gap: 0;
     }
+
+    svg{
+        transform: scale(0.7);
+    }
+}
 
 </style>

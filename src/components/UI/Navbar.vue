@@ -1,6 +1,7 @@
 <template>
    <nav role="navigation" class="navbar">
     <Logo/>
+    <IconHamburger />
     <div class="nav-options">
         <ul class="menu-section">
             <MenuNavbar label="Features" :dropdownData="featuresData"/>
@@ -21,9 +22,12 @@
 import Logo from '../Logo.vue'
 import MenuNavbar from './MenuNavbar.vue'
 import NavBarButton from './NavBarButton.vue'
+import IconHamburger from '../Icons/IconHamburger.vue'
+
 import { ref } from '@vue/reactivity'
+
 export default{
-    components: { Logo, MenuNavbar, NavBarButton },
+    components: { Logo, MenuNavbar, NavBarButton, IconHamburger },
 
     setup(){
         const featuresData = ref([
@@ -73,6 +77,31 @@ export default{
     .auth-user{
         display:flex;
         gap: 1rem;
+    }
+
+    @media (max-width:768px) {
+
+        .navbar{
+            justify-content: space-between;
+        }
+        .nav-options{
+            position:fixed;
+            right: -100%;
+            transition: 0.3s;
+            justify-content: center;
+            background-color: white;
+            z-index: 99;
+            flex-direction: column;
+            top:0;
+        }
+
+        .menu-section,.auth-user{
+            flex-direction: column;
+        }
+
+        .active{
+            right: 0;
+        }
     }
 
 </style>

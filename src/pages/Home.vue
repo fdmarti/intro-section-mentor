@@ -5,7 +5,6 @@
                 <div class="main-info">
                     <h2>Make <br> remote work</h2>
                     <p>Get your team in sync, no matter your location. <br> Streamline processes, create team rituals, and <br> watch productivity soar.</p>
-
                     <BlackButton />
                 </div>
                 <div class="footer">
@@ -14,7 +13,8 @@
 
             </section>
             <section class="main-image">
-                <img class="img-intro" src="../assets/image-hero-desktop.png" alt="image hero desktop">
+                <img class="img-intro-desktop" src="../assets/image-hero-desktop.png" alt="image hero desktop">
+                <img class="img-intro-mobile" src="../assets/image-hero-mobile.png" alt="image hero mobile">
             </section>
         </div> 
     </div>
@@ -31,8 +31,8 @@ export default{
 
 .intro{
     margin:0 auto;
-    max-width: 1440px;
     position:relative;
+    max-width: 1400px;
     z-index: 1;
 }
 
@@ -61,9 +61,53 @@ img{
     max-height: 750px;
 }
 
+.img-intro-mobile{
+    display: none;
+}
+
 .footer{
     position:absolute;
     bottom: 0;
+}
+
+@media (max-width:768px) {
+
+    br{
+        display: none;
+    }
+    .img-intro-mobile{
+        display: block;
+    }
+    .img-intro-desktop{
+        display: none;
+    }
+    .main-content{
+        flex-direction: column;
+    }
+    .main-section{
+        order:2;
+    }
+    .main-image{
+        order: 1;
+    }
+
+    img{
+        width: 100%;
+    }
+
+    .main-info{
+        text-align: center;
+    }
+    
+    h2{
+        font-size: 32px;
+        margin: 30px 0;
+    }
+
+    .footer{
+        position: relative;
+    }
+
 }
 
 </style>
