@@ -32,6 +32,8 @@ export default{
 .intro{
     margin:0 auto;
     max-width: 1440px;
+    position:relative;
+    z-index: 1;
 }
 
 .main-content{

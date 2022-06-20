@@ -1,13 +1,13 @@
 <template>
-    <li @click="toggleMenu">
-        <a class="entry-dropdown" href="#" >
+    <li>
+        <a class="entry-dropdown" href="#" @click="toggleMenu" @mouseenter="toggleMenu">
             {{label}}
             <span v-if="dropdownData">
                 <IconArrowUp  v-if="showDropdown"/>
                 <IconArrowDown  v-else/>
             </span>
         </a>
-        <ul v-if="dropdownData" class="menu-dropdown" :class="{'active': addActiveClass}">
+        <ul v-if="dropdownData" class="menu-dropdown" :class="{'active': addActiveClass}"  @mouseleave="toggleMenu">
             <li class="list-dropdown" v-for="(entry,index) in dropdownData" :key="index">
                 <IconsMenu :name="entry.icon"/>
                 {{entry.label}}
@@ -47,6 +47,7 @@ export default{
 
 li{
     list-style: none;
+    z-index: 9999;
 }
 
 a{
@@ -64,10 +65,9 @@ a:hover{
     display: none;
     position: absolute;
     margin-top: 15px;
-    padding: 0 0 0 30px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border-radius: 10px;
-    padding: 20px;
+    padding: 20px 30px;
 }
 
 .list-dropdown{
