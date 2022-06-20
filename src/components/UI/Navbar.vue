@@ -10,8 +10,8 @@
         </ul>
 
         <section class="auth-user">
-            <Button label="Login"/>
-            <Button label="Register"/>
+            <NavBarButton label="Login"/>
+            <NavBarButton label="Register"/>
         </section>
     </div>
 
@@ -20,10 +20,10 @@
 <script>
 import Logo from '../Logo.vue'
 import MenuNavbar from './MenuNavbar.vue'
-import Button from './Button.vue'
+import NavBarButton from './NavBarButton.vue'
 import { ref } from '@vue/reactivity'
 export default{
-    components: { Logo, MenuNavbar, Button },
+    components: { Logo, MenuNavbar, NavBarButton },
 
     setup(){
         const featuresData = ref([
